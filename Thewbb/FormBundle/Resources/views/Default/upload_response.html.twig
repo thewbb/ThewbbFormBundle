@@ -9,8 +9,8 @@
 <body>
 <script type="text/javascript">
     window.parent.$('#iframe_{{ id }}').prepend('<div style="width:auto; height:auto; float:left; display:inline;margin-bottom: 8px;">'
-    +"<img name='oss_file_{{ id }}' src='http://xiaoqu21.oss-cn-beijing.aliyuncs.com/{{ img }}' height='200px' /><br/>"
-    + '<button name="set_default_button_{{ id }}" type="button" >设置为默认</button>&nbsp;&nbsp;<button name="delete_button_{{ id }}">删除图片</button>'
+    +"<img name='oss_file_{{ id }}' src='http://xiaoqu21.oss-cn-beijing.aliyuncs.com/{{ img }}'  style='height:200px;margin-bottom: 8px;' /><br/>"
+    + '<button name="set_default_button_{{ id }}" class="btn btn-default">设置为默认</button>&nbsp;&nbsp;<button name="delete_button_{{ id }}" class="btn btn-default">删除图片</button>'
     + '</div>');
 
     window.parent.$('#upload_{{ id }}').attr("id", "old_upload{{ id }}");
