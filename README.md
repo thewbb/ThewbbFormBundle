@@ -59,3 +59,5 @@ prefix可以随意设置
 
 注意：
 images为text类型字段，图片会先上传到oss上，然后将所有文件的完整url整理成json数组，存储到text字段中。
+
+<img src="https://github.com/thewbb/ThewbbFormBundle/blob/master/Thewbb/FormBundle/doc/capture.png" />
