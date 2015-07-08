@@ -1,0 +1,3 @@
+thewbb_form_multi_upload:
+    path:     /multi_upload
+    defaults: { _controller: ThewbbFormBundle:Default:multiUpload }

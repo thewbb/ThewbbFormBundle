@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="http://123.57.215.138:8082/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    window.parent.$('#iframe_{{ id }}').prepend('<div style="width:auto; height:auto; float:left; display:inline;margin-bottom: 8px;">'
+    +"<img name='oss_file_{{ id }}' src='http://xiaoqu21.oss-cn-beijing.aliyuncs.com/{{ img }}' height='200px' /><br/>"
+    + '<button name="set_default_button_{{ id }}" type="button" >设置为默认</button>&nbsp;&nbsp;<button name="delete_button_{{ id }}">删除图片</button>'
+    + '</div>');
+
+    window.parent.$('#upload_{{ id }}').attr("id", "old_upload{{ id }}");
+    window.parent.$('#iframe_{{ id }}').before('<iframe id="upload_{{ id }}" src="{{ upload_url }}"  frameborder="no" border="0" marginwidth="0" marginheight="0" style="height:25px" scrolling="no" allowtransparency="yes"></iframe>');
+    window.parent.$('#iframe_{{ id }}').css('padding', '2px');
+    window.parent.get{{ id }}JsonString();
+    window.parent.$('#old_upload{{ id }}').remove();
+
+</script>
+</body>
+</html>

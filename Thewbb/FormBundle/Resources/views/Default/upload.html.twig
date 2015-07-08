@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="http://123.57.215.138:8082/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<form id="upload" action="http://xiaoqu21.oss-cn-beijing.aliyuncs.com" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="OSSAccessKeyId" id="OSSAccessKeyId"  value="{{ access_id }}" />
+    <input type="hidden" name="policy" id="policy"  value='{{ policy }}' />
+    <input type="hidden" name="Signature" id="Signature"  value="{{ signature }}" />
+    <input type="hidden" name="key" id="key"  value="{{ file_name }}" />
+    <input type="hidden" name="success_action_redirect" value="{{ url }}?id={{ id }}&img={{ file_name }}" />
+    <input type="file" name="file" id="file" />
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#file").change(function(){
+            $("#upload").submit();
+        });
+    });
+</script>
+</body>
+</html>

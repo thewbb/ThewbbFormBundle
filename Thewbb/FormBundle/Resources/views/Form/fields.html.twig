@@ -1,0 +1,43 @@
+{%- block multi_upload_widget -%}
+    <label for="file">{{ label }}:</label><br/>
+    {%- set type = type|default('hidden') -%}
+    {{ block('form_widget_simple') }}
+
+
+    <iframe src="{{ upload_url }}?id={{ id }}" id="upload_{{ id }}" frameborder="no" border="0" marginwidth="0" marginheight="0" style="height:25px" scrolling="no" allowtransparency="yes"></iframe>
+    <div id="iframe_{{ id }}" style="height:auto !important;">
+        {% for image in images %}
+            <div style="width:auto; height:auto; float:left; display:inline;margin-bottom: 8px;">
+                <img name='oss_file_{{ id }}' src='{{ image.url }}' style="height:200px;margin-bottom: 8px;" /><br/>
+                <button name="set_default_button_{{ id }}" type="button" class="btn btn-default">设置为默认</button>&nbsp;&nbsp;
+                <button name="delete_button_{{ id }}" class="btn btn-default">删除图片</button>
+            </div>
+        {% endfor %}
+        <div style="clear:both;height:0px;"></div>
+    </div>
+
+    <script type="text/javascript">
+
+        $("#iframe_{{ id }}").on("click", "button[name='set_default_button_{{ id }}']",function(){
+            $("#iframe_{{ id }}").prepend($(this).parent());
+            get{{ id }}JsonString();
+            return false;
+        });
+
+        $("#iframe_{{ id }}").on("click", "button[name='delete_button_{{ id }}']",function(){
+            $(this).parent().remove();
+            get{{ id }}JsonString();
+            return false;
+        });
+
+        function get{{ id }}JsonString(){
+            var data = [];
+            $("img[name='oss_file_{{ id }}']").each(function(index){
+                var row = {url: $(this).attr('src')};
+                data.push(row);
+            });
+            $('#{{ id }}').val(JSON.stringify(data));
+
+        }
+    </script>
+{%- endblock multi_upload_widget -%}
